@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Priority pages for crawling
+Allow: /book-appointment/
+Allow: /contact/
+Allow: /areas/
+Allow: /blinds/
+
+# Disallow admin areas and sensitive files
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Disallow: /scripts/
+
+# Sitemap location
+Sitemap: https://www.saddleworthblinds.co.uk/sitemap.xml
+
+# Crawl delay (optional - remove if not needed)
+Crawl-delay: 1 
