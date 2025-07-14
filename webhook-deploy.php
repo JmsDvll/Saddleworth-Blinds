@@ -2,13 +2,13 @@
 /**
  * GitHub Webhook Auto-Deploy Script
  * This script automatically pulls updates from GitHub when triggered by a webhook
- * Created for solar-panels-oldham.co.uk automatic deployment
+ * Created for saddleworthblinds.co.uk automatic deployment
  */
 
 // Configuration
 // Load secret token from separate config file (not committed to GitHub)
 require_once 'webhook-config.php';
-$REPO_PATH = '/home/sites/34b/b/b9ed38cdb2/public_html';
+$REPO_PATH = '/home/sites/39a/e/e4bb4502cc/public_html';
 $BRANCH = 'main';
 $LOG_FILE = 'deploy.log';
 
