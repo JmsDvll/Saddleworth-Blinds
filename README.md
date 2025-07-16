@@ -6,7 +6,7 @@ A professional lead generation website for Sunshine Blinds Saddleworth, designed
 This website serves as the primary lead generation tool for Sunshine Blinds Saddleworth, a window blinds specialist serving the Saddleworth area (Uppermill, Diggle, Delph, Greenfield, Dobcross, Lydgate). The site is optimized to capture leads through multiple conversion points and guide visitors toward booking free home consultations.
 
 ## 🌐 Live Website
-Visit the live website at: **https://jmsdvll.github.io/Saddleworth-Blinds/**
+Visit the live website at: **https://saddleworthblinds.co.uk/**
 
 ## 📊 Lead Generation Features
 
@@ -45,8 +45,10 @@ Visit the live website at: **https://jmsdvll.github.io/Saddleworth-Blinds/**
 - **Meta Tags** - Comprehensive SEO meta information
 
 ### Deployment
-- **GitHub Pages** - Automatic deployment from main branch
-- **Custom Domain Ready** - Configured for saddleworthblinds.co.uk
+- **Webhook Auto-Deploy System** - Automatic deployment via GitHub webhooks
+- **Server Repository Clone** - Direct deployment to production server
+- **PHP Webhook Handler** - Secure webhook processing with signature verification
+- **Custom Domain** - Live at saddleworthblinds.co.uk
 - **SSL Certificate** - Secure HTTPS hosting
 
 ## 📁 Project Structure
@@ -58,22 +60,39 @@ Visit the live website at: **https://jmsdvll.github.io/Saddleworth-Blinds/**
 ├── css/                   # Stylesheets
 ├── js/                    # JavaScript functionality
 ├── images/                # Optimized product images
+├── webhook-deploy.php     # GitHub webhook deployment handler
+├── webhook-config.php     # Webhook configuration (not in repo)
+├── deploy.log            # Deployment logs
 └── sitemap.xml           # SEO sitemap
 ```
 
-## 🚀 Local Development
+## 🚀 Development & Deployment
 
-### Quick Start
+### Local Development
 1. Clone the repository
 2. Open `index.html` in your browser
 3. Or serve with a local web server: `python -m http.server 8000`
 
+### Webhook Deployment System
+The website uses an automated deployment system that triggers on every commit to the main branch:
+
+- **GitHub Webhook** - Triggers deployment on push to main branch
+- **PHP Webhook Handler** - `webhook-deploy.php` processes deployment requests
+- **Server Repository** - Direct deployment to production server
+- **Conflict Resolution** - Automatic stash and reset to prevent deployment conflicts
+- **Deployment Logging** - All deployments logged to `deploy.log`
+
 ### Development Workflow
-- Edit HTML files for content changes
-- Modify CSS in `/css/styles.css` for styling
-- Update JavaScript in `/js/` for functionality
-- Test lead forms and conversion flows
-- Optimize images using included scripts
+1. Make changes to HTML, CSS, or JavaScript files
+2. Commit and push to main branch
+3. Webhook automatically deploys to saddleworthblinds.co.uk
+4. Changes are live within seconds
+
+### Webhook Configuration
+- **Webhook URL**: `https://saddleworthblinds.co.uk/webhook-deploy.php`
+- **Secret Token**: Configured in `webhook-config.php` (not committed to repo)
+- **Branch**: Main branch only
+- **Events**: Push events only
 
 ## 📈 Lead Generation Strategy
 
