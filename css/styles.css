@@ -3967,3 +3967,204 @@ section:first-of-type {
 .testimonials {
     background: var(--bg-secondary);
 }
+
+/* Thank You Page Styles */
+.thank-you-section {
+    padding: var(--space-16) 0;
+    background: var(--bg-primary);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.thank-you-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.thank-you-icon {
+    margin: 0 auto var(--space-8);
+    width: 120px;
+    height: 120px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.thank-you-icon svg {
+    width: 60px;
+    height: 60px;
+    stroke: var(--bg-primary);
+    stroke-width: 2;
+}
+
+.thank-you-content h1 {
+    font-size: var(--font-size-5xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-6);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.thank-you-message {
+    margin-bottom: var(--space-8);
+}
+
+.thank-you-message h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.thank-you-message p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+}
+
+.next-steps {
+    background: var(--bg-secondary);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) 0;
+    text-align: left;
+}
+
+.next-steps h3 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.next-steps ol,
+.next-steps ul {
+    margin: 0;
+    padding-left: var(--space-4);
+}
+
+.next-steps li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-base);
+}
+
+.next-steps li:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info {
+    background: var(--accent-gradient);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) 0;
+}
+
+.contact-info p {
+    color: var(--bg-primary);
+    font-size: var(--font-size-lg);
+    margin: 0;
+}
+
+.contact-info a {
+    color: var(--bg-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: none;
+}
+
+.thank-you-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin: var(--space-8) 0;
+    flex-wrap: wrap;
+}
+
+.thank-you-actions .btn {
+    min-width: 200px;
+}
+
+.business-hours {
+    background: var(--bg-secondary);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-8);
+}
+
+.business-hours h3 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.business-hours p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-base);
+}
+
+.business-hours p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .thank-you-section {
+        padding: var(--space-12) 0;
+    }
+    
+    .thank-you-content h1 {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .thank-you-message h2 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .thank-you-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .thank-you-actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .thank-you-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .thank-you-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Form Error Styles */
+.form-error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c33;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+.form-error::before {
+    content: "⚠️ ";
+    margin-right: var(--space-2);
+}

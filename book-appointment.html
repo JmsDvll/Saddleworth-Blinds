@@ -1,3 +1,4 @@
+<?php include 'init-session.php'; ?>
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -143,7 +144,24 @@
                         <h2>Tell Us a Bit About Yourself</h2>
                         <p>Just a few quick details and we'll get back to you to arrange your free home visit. The more you can tell us, the better we can help!</p>
                         
+                        <?php
+                        // Display error messages if any
+                        if (isset($_GET['error'])) {
+                            $error_type = $_GET['error'];
+                            $error_message = $_GET['message'] ?? '';
+                            
+                            if ($error_type === 'validation' && $error_message) {
+                                echo '<div class="form-error">' . htmlspecialchars(urldecode($error_message)) . '</div>';
+                            } elseif ($error_type === 'email') {
+                                echo '<div class="form-error">Sorry, there was a problem sending your message. Please try again or call us on 01457 597091.</div>';
+                            } elseif ($error_type === 'security') {
+                                echo '<div class="form-error">Security validation failed. Please refresh the page and try again.</div>';
+                            }
+                        }
+                        ?>
+                        
                         <form class="booking-form" id="appointment-form" name="appointment_booking" method="POST" action="/submit-booking.php">
+                            <input type="hidden" name="csrf_token" value="<?php echo getCSRFToken(); ?>">
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="firstName">What's your first name? *</label>
@@ -283,6 +301,11 @@
                                         I'm happy for you to contact me about this enquiry and agree to the <a href="/privacy-policy/" target="_blank">Privacy Policy</a> *
                                     </label>
                                 </div>
+                            </div>
+                            
+                            <!-- Honeypot field for spam protection -->
+                            <div style="display: none;">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-large">

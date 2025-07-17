@@ -1,3 +1,4 @@
+<?php include 'init-session.php'; ?>
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -187,12 +188,35 @@
                 <div class="contact-grid">
                     <div class="contact-form-wrapper">
                         <h2>Quick Message Form</h2>
+                        
+                        <?php
+                        // Display error messages if any
+                        if (isset($_GET['error'])) {
+                            $error_type = $_GET['error'];
+                            $error_message = $_GET['message'] ?? '';
+                            
+                            if ($error_type === 'validation' && $error_message) {
+                                echo '<div class="form-error">' . htmlspecialchars(urldecode($error_message)) . '</div>';
+                            } elseif ($error_type === 'email') {
+                                echo '<div class="form-error">Sorry, there was a problem sending your message. Please try again or call us on 01457 597091.</div>';
+                            } elseif ($error_type === 'security') {
+                                echo '<div class="form-error">Security validation failed. Please refresh the page and try again.</div>';
+                            }
+                        }
+                        ?>
                         <div class="contact-form">
-                            <form>
-                                <input type="text" placeholder="What's your name? *" required>
-                                <input type="email" placeholder="Your email address *" required>
-                                <input type="tel" placeholder="Phone Number">
-                                <textarea placeholder="Tell us what you're thinking... any questions, room details, or just say hello!" rows="5"></textarea>
+                            <form method="POST" action="/submit-contact.php">
+                                <input type="hidden" name="csrf_token" value="<?php echo getCSRFToken(); ?>">
+                                <input type="text" name="name" placeholder="What's your name? *" required>
+                                <input type="email" name="email" placeholder="Your email address *" required>
+                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <textarea name="message" placeholder="Tell us what you're thinking... any questions, room details, or just say hello!" rows="5"></textarea>
+                                
+                                <!-- Honeypot field for spam protection -->
+                                <div style="display: none;">
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </div>
+                                
                                 <button type="submit" class="btn btn-primary">Send Your Message</button>
                             </form>
                         </div>
