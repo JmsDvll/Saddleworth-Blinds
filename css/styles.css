@@ -1261,15 +1261,15 @@ a.service-card:hover h3 {
 
 /* Gallery Section Styles */
 .gallery-section {
-    padding: 80px 0;
+    padding: var(--space-16) 0;
     background: var(--bg-light);
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    gap: var(--space-6);
+    margin-top: var(--space-10);
 }
 
 .gallery-item {
@@ -1305,7 +1305,7 @@ a.service-card:hover h3 {
 }
 
 .gallery-caption {
-    padding: 20px;
+    padding: var(--space-4);
     background: white;
 }
 
@@ -1344,7 +1344,7 @@ a.service-card:hover h3 {
 
 /* Image-Text Sections */
 .image-text-section {
-    padding: 80px 0;
+    padding: var(--space-16) 0;
 }
 
 .image-text-wrapper {
@@ -1392,7 +1392,7 @@ a.service-card:hover h3 {
 /* Service CTA Section */
 .service-cta {
     background: var(--accent-gradient);
-    padding: 80px 0;
+    padding: var(--space-16) 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -3966,4 +3966,258 @@ section:first-of-type {
 
 .testimonials {
     background: var(--bg-secondary);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS IMPROVEMENTS
+   ========================================== */
+
+/* Mobile-specific enhancements */
+@media (max-width: 768px) {
+    /* Ensure minimum tap target sizes */
+    button,
+    .btn,
+    input[type="submit"],
+    input[type="button"],
+    input[type="checkbox"],
+    input[type="radio"],
+    select,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve form inputs for mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="number"],
+    input[type="search"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    /* Better spacing for checkboxes and radios */
+    .form-group input[type="checkbox"],
+    .form-group input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        margin-right: var(--space-3);
+    }
+    
+    /* Improve button groups on mobile */
+    .cta-buttons,
+    .hero-cta {
+        gap: var(--space-3);
+    }
+    
+    .cta-buttons .btn,
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    /* Fix hardcoded padding values */
+    section {
+        padding: var(--space-10) 0;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: var(--space-12) 0;
+    }
+    
+    /* Improve navigation for mobile */
+    .main-nav.mobile-menu-open {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-primary);
+        z-index: 9999;
+        overflow-y: auto;
+        padding: var(--space-6);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .nav-list > li {
+        width: 100%;
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: var(--space-3) var(--space-4);
+        border-radius: var(--radius-md);
+    }
+    
+    /* Mobile menu overlay */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+    }
+    
+    .mobile-menu-overlay.active {
+        display: block;
+    }
+    
+    /* Prevent body scroll when menu open */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Hamburger animation */
+    .hamburger.active {
+        background: transparent;
+    }
+    
+    .hamburger.active::before {
+        transform: rotate(45deg) translate(0, 0);
+        top: 0;
+    }
+    
+    .hamburger.active::after {
+        transform: rotate(-45deg) translate(0, 0);
+        top: 0;
+    }
+    
+    /* Improve logo size on mobile */
+    .logo img {
+        width: 50px;
+        height: auto;
+    }
+    
+    /* Fix image containers */
+    .hero-image,
+    .service-hero-image {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    /* Improve grid layouts */
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .services-grid,
+    .features-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    /* Fix card heights on mobile */
+    .service-card,
+    .feature-card,
+    .testimonial-card {
+        min-height: auto;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    /* Further reduce padding */
+    :root {
+        --container-padding: var(--space-3);
+    }
+    
+    /* Smaller fonts for very small screens */
+    .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* Stack phone number in header */
+    .header-cta {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .phone-number {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Landscape orientation fixes */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 400px;
+        padding: var(--space-8) 0;
+    }
+    
+    .main-nav.mobile-menu-open {
+        top: 60px;
+        padding: var(--space-4);
+    }
+    
+    .nav-list a {
+        padding: var(--space-2) var(--space-3);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .btn:hover,
+    a:hover {
+        transform: none;
+    }
+    
+    /* Add tap highlight */
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        -webkit-tap-highlight-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    /* Ensure dropdowns work on touch */
+    .nav-dropdown:hover .nav-dropdown-menu {
+        display: none;
+    }
+    
+    .nav-dropdown-toggle[aria-expanded="true"] + .nav-dropdown-menu {
+        display: block;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid currentColor;
+    }
+    
+    input,
+    textarea,
+    select {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
