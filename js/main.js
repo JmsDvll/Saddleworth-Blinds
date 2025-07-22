@@ -1151,7 +1151,7 @@ function initFAQ() {
                 
                 // Track FAQ interaction
                 trackEvent('faq_opened', {
-                    question: this.querySelector('h3').textContent,
+                    question: this.textContent.trim(),
                     page_url: window.location.href
                 });
             } else {
