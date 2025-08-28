@@ -171,7 +171,7 @@
                         </svg>
                         01457 597091
                     </a>
-                    <a href="/book-appointment/" class="btn btn-primary">Book Free Quote</a>
+                    <a href="/book-appointment.html" class="btn btn-primary">Book Free Quote</a>
                 </div>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -188,11 +188,13 @@
                     <div class="contact-form-wrapper">
                         <h2>Quick Message Form</h2>
                         <div class="contact-form">
-                            <form>
-                                <input type="text" placeholder="What's your name? *" required>
-                                <input type="email" placeholder="Your email address *" required>
-                                <input type="tel" placeholder="Phone Number">
-                                <textarea placeholder="Tell us what you're thinking... any questions, room details, or just say hello!" rows="5"></textarea>
+                            <form method="POST" action="/process-contact.php">
+                                <input type="text" name="name" placeholder="What's your name? *" required>
+                                <input type="email" name="email" placeholder="Your email address *" required>
+                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <textarea name="message" placeholder="Tell us what you're thinking... any questions, room details, or just say hello!" rows="5" required></textarea>
+                                <input type="hidden" name="form_start_time" value="">
+                                <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
                                 <button type="submit" class="btn btn-primary">Send Your Message</button>
                             </form>
                         </div>
@@ -253,14 +255,14 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="/roller-blinds/">Roller Blinds</a></li>
-                        <li><a href="/venetian-blinds/">Venetian Blinds</a></li>
-                        <li><a href="/vertical-blinds/">Vertical Blinds</a></li>
-                        <li><a href="/vision-blinds/">Vision Blinds</a></li>
-                        <li><a href="/perfect-fit-blinds/">Perfect Fit Blinds</a></li>
-                        <li><a href="/shutters/">Shutters</a></li>
-                        <li><a href="/roman-blinds/">Roman Blinds</a></li>
-                        <li><a href="/curtains/">Curtains</a></li>
+                        <li><a href="/roller-blinds.html">Roller Blinds</a></li>
+                        <li><a href="/venetian-blinds.html">Venetian Blinds</a></li>
+                        <li><a href="/vertical-blinds.html">Vertical Blinds</a></li>
+                        <li><a href="/vision-blinds.html">Vision Blinds</a></li>
+                        <li><a href="/perfect-fit-blinds.html">Perfect Fit Blinds</a></li>
+                        <li><a href="/shutters.html">Shutters</a></li>
+                        <li><a href="/roman-blinds.html">Roman Blinds</a></li>
+                        <li><a href="/curtains.html">Curtains</a></li>
                     </ul>
                 </div>
                 
@@ -294,8 +296,8 @@
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 Sunshine Blinds Saddleworth. All rights reserved. Part of Sunshine Blinds.</p>
                     <ul class="footer-legal">
-                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-                        <li><a href="/terms-conditions/">Terms & Conditions</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-conditions.html">Terms & Conditions</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
                     </ul>
                 </div>
