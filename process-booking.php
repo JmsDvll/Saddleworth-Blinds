@@ -54,7 +54,9 @@ $errors = [];
 $success = false;
 
 // Get and sanitize form data
-$name = isset($_POST['name']) ? sanitize_input($_POST['name']) : '';
+$firstName = isset($_POST['firstName']) ? sanitize_input($_POST['firstName']) : '';
+$lastName = isset($_POST['lastName']) ? sanitize_input($_POST['lastName']) : '';
+$name = trim($firstName . ' ' . $lastName);
 $email = isset($_POST['email']) ? sanitize_input($_POST['email']) : '';
 $phone = isset($_POST['phone']) ? sanitize_input($_POST['phone']) : '';
 $address = isset($_POST['address']) ? sanitize_input($_POST['address']) : '';
