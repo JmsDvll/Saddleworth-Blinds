@@ -5,7 +5,6 @@ Allow: /
 Allow: /book-appointment/
 Allow: /contact/
 Allow: /areas/
-Allow: /blinds/
 
 # Disallow admin areas and sensitive files
 Disallow: /admin/

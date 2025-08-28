@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Configuration
-$TO_EMAIL = 'info@saddleworthblinds.co.uk';
+$TO_EMAIL = 'sales@saddleworthblinds.co.uk';
 $FROM_EMAIL = 'hello@saddleworthblinds.co.uk';
 $SUBJECT_PREFIX = '[Website Contact] ';
 $REDIRECT_SUCCESS = '/contact.html?success=1';

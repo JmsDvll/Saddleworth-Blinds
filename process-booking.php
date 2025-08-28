@@ -61,16 +61,19 @@ $email = isset($_POST['email']) ? sanitize_input($_POST['email']) : '';
 $phone = isset($_POST['phone']) ? sanitize_input($_POST['phone']) : '';
 $address = isset($_POST['address']) ? sanitize_input($_POST['address']) : '';
 $postcode = isset($_POST['postcode']) ? sanitize_input($_POST['postcode']) : '';
-$windows = isset($_POST['windows']) ? sanitize_input($_POST['windows']) : '';
+$rooms = isset($_POST['rooms']) ? sanitize_input($_POST['rooms']) : '';
 $timeframe = isset($_POST['timeframe']) ? sanitize_input($_POST['timeframe']) : '';
-$contact_time = isset($_POST['contact_time']) ? sanitize_input($_POST['contact_time']) : '';
+$budget = isset($_POST['budget']) ? sanitize_input($_POST['budget']) : '';
 $message = isset($_POST['message']) ? sanitize_input($_POST['message']) : '';
 
-// Handle blind types (checkboxes)
-$blind_types = [];
-if (isset($_POST['blind_types']) && is_array($_POST['blind_types'])) {
-    foreach ($_POST['blind_types'] as $type) {
-        $blind_types[] = sanitize_input($type);
+// Handle blind type (single select)
+$blindType = isset($_POST['blindType']) ? sanitize_input($_POST['blindType']) : '';
+
+// Handle preferred times (checkboxes)
+$preferred_times = [];
+if (isset($_POST['preferredTime']) && is_array($_POST['preferredTime'])) {
+    foreach ($_POST['preferredTime'] as $time) {
+        $preferred_times[] = sanitize_input($time);
     }
 }
 
@@ -99,8 +102,8 @@ if (empty($postcode)) {
     $errors[] = 'Please enter a valid UK postcode';
 }
 
-if (empty($windows)) {
-    $errors[] = 'Number of windows is required';
+if (empty($rooms)) {
+    $errors[] = 'Number of windows/rooms is required';
 }
 
 // Basic spam protection
@@ -132,18 +135,22 @@ if (empty($errors)) {
     $email_body .= "Postcode: " . $postcode . "\n\n";
     
     $email_body .= "PROJECT DETAILS:\n";
-    $email_body .= "Number of windows: " . $windows . "\n";
+    $email_body .= "Number of windows/rooms: " . $rooms . "\n";
     
-    if (!empty($blind_types)) {
-        $email_body .= "Interested in: " . implode(', ', $blind_types) . "\n";
+    if (!empty($blindType)) {
+        $email_body .= "Interested in: " . $blindType . "\n";
     }
     
     if (!empty($timeframe)) {
         $email_body .= "Timeframe: " . $timeframe . "\n";
     }
     
-    if (!empty($contact_time)) {
-        $email_body .= "Best time to contact: " . $contact_time . "\n";
+    if (!empty($budget)) {
+        $email_body .= "Budget: " . $budget . "\n";
+    }
+    
+    if (!empty($preferred_times)) {
+        $email_body .= "Preferred times: " . implode(', ', $preferred_times) . "\n";
     }
     
     if (!empty($message)) {
@@ -173,7 +180,7 @@ if (empty($errors)) {
             'phone' => $phone,
             'address' => $address,
             'postcode' => $postcode,
-            'windows' => $windows,
+            'rooms' => $rooms,
             'blind_types' => $blind_types,
             'timestamp' => date('Y-m-d H:i:s')
         ]);

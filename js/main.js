@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initFormEnhancements();
     initScrollEffects();
+    initScrollAnimations();
 });
 
 // Fixed Mobile Menu System
@@ -104,19 +105,35 @@ function initDropdownNavigation() {
     
     function toggleDropdown(toggle) {
         const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        const dropdownMenu = toggle.nextElementSibling;
         
-        // Close all dropdowns first
-        closeAllDropdowns();
-        
-        // Open the clicked dropdown if it wasn't already open
-        if (!isExpanded) {
-            toggle.setAttribute('aria-expanded', 'true');
+        // For mobile, handle dropdown differently
+        if (window.innerWidth <= 1023) {
+            if (dropdownMenu) {
+                if (isExpanded) {
+                    dropdownMenu.classList.remove('dropdown-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    dropdownMenu.classList.add('dropdown-open');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+            }
+        } else {
+            // Desktop behavior
+            closeAllDropdowns();
+            if (!isExpanded) {
+                toggle.setAttribute('aria-expanded', 'true');
+            }
         }
     }
     
     function closeAllDropdowns() {
         dropdownToggles.forEach(toggle => {
             toggle.setAttribute('aria-expanded', 'false');
+            const dropdownMenu = toggle.nextElementSibling;
+            if (dropdownMenu && window.innerWidth <= 1023) {
+                dropdownMenu.classList.remove('dropdown-open');
+            }
         });
     }
 }
@@ -240,3 +257,35 @@ errorStyles.textContent = `
     }
 `;
 document.head.appendChild(errorStyles);
+
+// Scroll Animations
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if (!animatedElements.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the animation class based on data attribute
+                const animationClass = entry.target.getAttribute('data-animation');
+                if (animationClass) {
+                    entry.target.classList.add(animationClass);
+                }
+                // Trigger the animation by setting opacity to 1
+                entry.target.style.opacity = '1';
+                
+                // Stop observing this element
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe all animated elements
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}

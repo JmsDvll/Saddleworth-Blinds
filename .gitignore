@@ -1,0 +1,28 @@
+# Sensitive files
+webhook-config.php
+form_submissions.log
+deploy.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Compiled files
+*.pyc
+__pycache__/

@@ -10,64 +10,57 @@
     
     <!-- Main Service Pages -->
     <url>
-        <loc>https://www.saddleworthblinds.co.uk/blinds/</loc>
-        <lastmod>2025-01-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
         <loc>https://www.saddleworthblinds.co.uk/roller-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/venetian-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/vertical-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/vision-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/perfect-fit-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/shutters/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/roman-blinds/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.saddleworthblinds.co.uk/curtains/</loc>
-        <lastmod>2025-06-25</lastmod>
+        <lastmod>2025-01-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
