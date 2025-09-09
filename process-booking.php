@@ -181,7 +181,8 @@ if (empty($errors)) {
             'address' => $address,
             'postcode' => $postcode,
             'rooms' => $rooms,
-            'blind_types' => $blind_types,
+            'blind_type' => $blindType,
+            'preferred_times' => $preferred_times,
             'timestamp' => date('Y-m-d H:i:s')
         ]);
         
@@ -202,9 +203,12 @@ if (empty($errors)) {
         $auto_reply_body .= "---\n";
         $auto_reply_body .= "Your request details:\n";
         $auto_reply_body .= "Address: " . $address . ", " . $postcode . "\n";
-        $auto_reply_body .= "Windows: " . $windows . "\n";
-        if (!empty($blind_types)) {
-            $auto_reply_body .= "Interested in: " . implode(', ', $blind_types) . "\n";
+        $auto_reply_body .= "Windows/rooms: " . $rooms . "\n";
+        if (!empty($blindType)) {
+            $auto_reply_body .= "Interested in: " . $blindType . "\n";
+        }
+        if (!empty($preferred_times)) {
+            $auto_reply_body .= "Preferred times: " . implode(', ', $preferred_times) . "\n";
         }
         
         $auto_reply_headers = "From: " . $FROM_EMAIL . "\r\n";
